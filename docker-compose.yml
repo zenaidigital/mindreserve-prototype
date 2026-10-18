@@ -1,0 +1,24 @@
+services:
+  mindreserve:
+    build: .
+    image: mindreserve-ai:local
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 8080
+      AI_MODE: ${AI_MODE:-demo}
+      STORE_MODE: ${STORE_MODE:-local}
+      APP_ACCESS_KEY: ${APP_ACCESS_KEY:?Set APP_ACCESS_KEY before starting}
+      DATA_DIR: /app/data
+    volumes:
+      - mindreserve-data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  mindreserve-data:

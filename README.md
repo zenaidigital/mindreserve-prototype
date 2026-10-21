@@ -74,6 +74,14 @@ MindReserve AI provides a structured capability baseline and a traceable decisio
 - Server-side validation
 - Content Security Policy and same-origin mutation checks
 
+## Assessment access
+
+Assessment URL:
+
+https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/assessment.html
+
+Users can complete the assessment without signing in. Their result is displayed immediately after submission. They may then create an account to track this result and future assessment history. Account creation is optional.
+
 ## Google Cloud Architecture
 
 ### Implemented and deployed

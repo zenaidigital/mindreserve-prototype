@@ -9,9 +9,10 @@ function getVerifier(){
   }
   return verifier;
 }
-export async function verifyBearer(req){
+export async function verifyBearer(req, checkRevoked=false){
   const value=String(req.headers.authorization||'');
   if(!value.startsWith('Bearer ')) return null;
-  try{return await getVerifier().verifyIdToken(value.slice(7));}
+  try{return await getVerifier().verifyIdToken(value.slice(7), checkRevoked);}
   catch{return null;}
 }
+

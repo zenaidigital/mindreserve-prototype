@@ -351,10 +351,10 @@ The architecture distinguishes implemented, configured and planned services:
 | Firebase Authentication | Deployed email/password authentication |
 | Secret Manager | Used for protected runtime configuration |
 | Gemini on Vertex AI | Adapter implemented; demo mode may be active |
-| Vertex AI Search / Agent Search | Planned enterprise retrieval extension |
-| Document AI | Planned structured document-processing extension |
-| Vertex AI Agent Engine / ADK | Planned bounded-agent extension |
-| BigQuery | Planned analytics extension |
+| **Vertex AI Search / Agent Search** | Enterprise retrieval extension |
+| **Document AI** | Structured document-processing extension |
+| **Vertex AI Agent Engine / ADK** | Bounded-agent extension |
+| **BigQuery** | Analytics extension |
 | xAPI | Event-model extension; conformance not claimed |
 | OpenTelemetry | Observability extension; full instrumentation not claimed |
 | AlloyDB | Enterprise roadmap |

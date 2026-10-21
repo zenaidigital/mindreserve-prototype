@@ -1,108 +1,403 @@
-# MindReserve AI prototype
+# MindReserve AI — Enterprise AI-Readiness and Value-Realisation Platform
 
-A local-first Enterprise Decision and Capability Copilot. Built for Sunil Mysore Kempegowda's AI Builder Cup concept, with traceability from business objective to evidence, human decision, internal action and reported outcome.
+**Track:** Future of Work & Enterprise Productivity — Google Cloud AI Builder Cup 2026  
+**Team:** MindReserve Labs  
+**Team Leader:** Sunil Mysore Kempegowda   
+**Team Member:** Bryan Chelliah
 
-## Run locally
+**Tagline:** Make AI improve human judgement, not replace it.
 
-Requires Node.js 22 or newer (Node 24 recommended).
+A local-first Enterprise Decision and Capability Copilot with traceability from business objective to evidence, human decision, internal action and reported outcome.
 
-```powershell
-cd 'C:\Users\sunil\Desktop\zen\2026\ZenSkillAI\Claude\Desktop\Cognitive\mindreserve-prototype'
+## Production Competition Deployment
+
+The competition prototype is deployed on Google Cloud Run.
+
+**Region:** `australia-southeast1` — Sydney, Australia
+
+- **User portal:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/
+- **Assessment:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/assessment.html
+- **Administrator dashboard:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/admin.html
+- **Business reserve workflow:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/reserve.html
+- **Demo video:** https://www.youtube.com/watch?v=_PmVYKsoem0
+
+Reviewer credentials are provided through the official competition portal. Passwords are not published in this repository.
+
+## Overview
+
+AI can increase output volume before it improves reasoning quality. Leaders need visibility into whether people can:
+
+- Frame useful business problems
+- Formulate relevant questions
+- Select and evaluate evidence
+- Verify AI-generated outputs
+- Recognise uncertainty and limitations
+- Keep human accountability visible
+- Approve actions with explicit rationale
+- Measure whether outcomes improved
+
+MindReserve AI provides a governed loop:
+
+**Assess → Practise → Use AI → Challenge Evidence → Approve → Measure Outcomes**
+
+The platform combines AI-readiness assessment, evidence-aware decision workflows, human review and measurable outcomes.
+
+## The Problem
+
+AI adoption often focuses on output speed rather than decision quality. Organisations need to know whether people can use AI responsibly while preserving evidence, accountability and human judgement.
+
+MindReserve AI provides a structured capability baseline and a traceable decision workflow.
+
+## Current Prototype Capabilities
+
+- Personal AI-readiness assessment
+- Individual user results and assessment history
+- Firebase email/password authentication
+- Firestore-backed application state
+- Evidence-aware decision workflow
+- Human review and approval points
+- Protected administrator dashboard
+- Business reserve workflow
+- Cloud Run deployment
+- Rule-based demonstration mode
+- Gemini on Vertex AI integration adapter
+- JSON decision-pack export
+- Activity and audit ledger
+- Server-side validation
+- Content Security Policy and same-origin mutation checks
+
+## Google Cloud Architecture
+
+### Implemented and deployed
+
+- **Cloud Run** — web application and API deployment
+- **Cloud Build** — container build and deployment automation
+- **Artifact Registry** — versioned container images
+- **Firestore** — assessment results, decision records and application state
+- **Firebase Authentication / Identity Toolkit** — email/password authentication
+- **Secret Manager** — protected runtime secrets and configuration
+- **IAM and service accounts** — controlled access to Google Cloud resources
+- **Cloud Logging** — runtime diagnostics
+
+### Gemini usage
+
+Gemini was used during research and development to shape:
+
+- Assessment content
+- Scenario design
+- Socratic questions
+- Feedback language
+- Governance framing
+- Enterprise architecture
+
+The application includes a Gemini on Vertex AI adapter targeting:
+
+```text
+gemini-2.5-flash
+```
+
+The public demonstration may use deterministic demo mode for reliable evaluation. Vertex AI mode is available when the required project configuration, authentication and permissions are enabled.
+
+### Enterprise extension architecture
+
+- **Vertex AI Search / Agent Search** — target enterprise retrieval and access-aware grounding
+- **Document AI** — target policy and SOP extraction
+- **Vertex AI Agent Engine and Agent Development Kit** — target bounded workflows with human approval gates
+- **BigQuery** — target anonymised assessment and outcome analytics
+- **xAPI-compatible events** — target capability and learning telemetry
+- **OpenTelemetry** — target distributed workflow observability
+- **AlloyDB or managed PostgreSQL** — potential enterprise record-store extension
+
+The current prototype implements local lexical search, plain-text and Markdown processing, Firestore persistence, deterministic reasoning and a traceable decision workflow.
+
+## Governed Decision Workflow
+
+The decision workspace connects:
+
+```text
+Business objective
+        ↓
+Capability and requirement
+        ↓
+Evidence and source excerpts
+        ↓
+AI-assisted recommendation
+        ↓
+Human challenge and reflection
+        ↓
+Approval or rejection
+        ↓
+Internal action
+        ↓
+Reported outcome
+```
+
+The workflow keeps human judgement, evidence provenance and outcome measurement visible.
+
+## Assessment Model
+
+The assessment covers capability areas including:
+
+- Problem framing
+- Question formulation
+- Evidence evaluation
+- Accountability
+- Systems thinking
+- Learning agility
+- Collaboration
+- Safe and responsible AI use
+
+Assessment results are capability-development feedback. They are not:
+
+- Clinical assessments
+- Mental-health diagnoses
+- Intelligence tests
+- Personality assessments
+- Employment decisions
+
+The progressive user journey includes:
+
+- Foundation practice
+- Level 1 — Safe user
+- Level 2 — Independent practitioner
+- Level 3 — Advanced practitioner
+
+Users see one scenario at a time, with shuffled options and server-side scoring. Weak results trigger targeted practice rather than a longer questionnaire.
+
+## Cognitive Reserve Product Boundary
+
+The Cognitive Reserve model treats lifetime experience, current durable skills, observable AI-assisted behaviour and reported business outcomes as separate evidence layers.
+
+The reserve profile is contextual. It is not:
+
+- A clinical score
+- An intelligence score
+- A hiring score
+- A personality score
+- A short-term performance score
+
+Mental-health and wellbeing context is an optional safety layer. It is not diagnostic or therapeutic. The AI must not present itself as a clinician.
+
+## Evidence and Meeting Intelligence
+
+The Evidence Library supports:
+
+- Plain-text and Markdown source ingestion
+- SHA-256 fingerprints
+- Lexical retrieval
+- Exact-excerpt validation
+- Source ownership and version metadata
+
+Meeting Intelligence supports:
+
+- Transcript input
+- Draft decision extraction
+- Proposed actions
+- Open questions
+- Participant confirmation status
+
+Meeting extraction is an unconfirmed draft and does not automatically approve or execute any action.
+
+## Development and Local Testing
+
+Requires Node.js 22 or newer. Node.js 24 is recommended.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/zenaidigital/mindreserve-prototype.git
+cd mindreserve-prototype
 npm install
+```
+
+Start the local server:
+
+```bash
 npm start
 ```
 
-Open http://127.0.0.1:8080. Demo mode runs without credentials or remote AI calls. Local records persist in `data/workspace.json`; back up that file if needed. Live integrations require the installed dependencies. Do not edit it while the server runs.
+Open:
 
-```powershell
+```text
+http://127.0.0.1:8080
+```
+
+The local demo mode runs without external AI credentials.
+
+Run checks with:
+
+```bash
 npm test
 npm run check
 ```
 
-## Three-minute demo
+The local environment is for development and testing. The `run.app` URLs above are the deployed competition environment.
 
-1. Overview → **Explore the sample review**. It creates a fictional onboarding proposal with an unsupported 40% improvement claim and excessive automation scope.
-2. **Run evidence & reasoning review**. Inspect assumptions, alternatives and exact excerpts from the seeded fictional policies.
-3. Answer the four questions in your own words; check the source documents you reviewed; revise the recommendation to a limited pilot with human approval, measurements and rollback conditions.
-4. Record an approval rationale and confirm the named owner's disposition. This is explicitly self-attested, not authenticated enterprise approval.
-5. Create an **internal task**. It does not call email, Microsoft licensing, project-management or other external systems.
-6. Record illustrative measurements (40-minute baseline, 32-minute observation, 20 cases) and clearly label them simulated in the measurement note. Outcomes shows a calculated 20% time difference; this is not verified ROI.
-7. Export the JSON decision pack. It includes context, review, reasoning, disposition, relevant source records and audit events.
-8. Evidence library: add a `.txt`/`.md` source or paste text. Search by words. Meeting intelligence: load a sample transcript and create an **unconfirmed draft** register.
+## Configure Gemini Locally
 
-## Implemented
+Copy the example configuration:
 
-- Decision context (objective, capability, requirement, owner, recommendation).
-- Source text ingestion, SHA-256 fingerprints, lexical retrieval and exact-excerpt validation.
-- Four-step reasoning interaction: role inversion, assumption audit, alternatives and evidence review.
-- Approval gates enforced server-side; duplicate actions rejected; revisions invalidate previous reasoning and approvals.
-- Local persistent repository with atomic writes; optional transaction-backed Firestore adapter.
-- Optional Gemini REST adapter using Application Default Credentials. Demo mode is deterministic and visibly labelled.
-- Transcript-to-draft register, internal tasks, reported outcomes, activity ledger and JSON export.
-- Responsive interface, server-side validation, same-origin mutation checks, CSP and optional workspace access key.
+```bash
+cp .env.example .env
+```
 
-## Configure Gemini later
+Set:
 
-Copy `.env.example` to `.env`, set `AI_MODE=vertex`, `GOOGLE_CLOUD_PROJECT`, an available `GEMINI_MODEL` and `VERTEX_LOCATION`. Default model is `gemini-2.5-flash`; availability and region access must be checked in your project.
+```text
+AI_MODE=vertex
+GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+GEMINI_MODEL=gemini-2.5-flash
+VERTEX_LOCATION=global
+```
 
-```powershell
+Authenticate with Application Default Credentials:
+
+```bash
 gcloud auth application-default login
 gcloud services enable aiplatform.googleapis.com --project YOUR_PROJECT_ID
 ```
 
-Restart the server and run a review. The adapter sends the decision and retrieved source text to Vertex AI, asks for JSON, rejects invented source IDs and non-verbatim quotations, and reports errors instead of silently falling back to demo mode. Allow up to 60 seconds per request. The UI says **configured**, not **verified**, until a successful live request is made.
+Restart the server and run a decision review.
 
-Google API reference: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference
+The adapter sends the decision and retrieved source text to Vertex AI, requests structured JSON, rejects invented source identifiers and rejects non-verbatim quotations. Errors are reported rather than silently falling back to demo mode.
 
-## Cloud Run preparation (not deployed)
+A successful live request must be completed before claiming that the Vertex AI connection has been verified.
 
-The Dockerfile listens on Cloud Run's `PORT`; uses a non-root Node user; installs locked dependencies; excludes local data and secrets. Local filesystem persistence is unsuitable for Cloud Run. Before cloud deployment, create Firestore in Native mode and select `STORE_MODE=firestore`. The adapter is a single shared workspace document (an intentionally bounded prototype, not a scalable enterprise repository).
+Vertex AI reference:
 
-Use a dedicated service account with Vertex AI User and Firestore access (`roles/datastore.user`) as appropriate. Inject `APP_ACCESS_KEY` from Secret Manager for a private shared demo; never commit the key. Keep the Cloud Run service authenticated unless you deliberately configure a judge-accessible demonstration. Configure access as a separate reviewed step.
+https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference
 
-The current Firestore adapter and Gemini adapter have not been verified against a live Google Cloud project. Public competition deployment, IAM, billing and source publication require project configuration first.
+## Deployment Path
 
-## OCI deployment baseline
+```text
+GitHub source
+    ↓
+Cloud Build
+    ↓
+Artifact Registry
+    ↓
+Cloud Run
+    ↓
+Production competition URLs
+```
 
-The included `Dockerfile` produces an OCI-compatible image. Copy `.env.example` to `.env`, set a long random `APP_ACCESS_KEY`, and run `docker compose up -d --build`. The service listens on port 8080 and exposes `/health`; the compose volume preserves local records.
+The repository should be updated before creating a new deployment image so that the source, container image and public service remain traceable to the same release.
 
-Before onboarding real users, use managed PostgreSQL or Firestore, encrypted backups, TLS, rate limiting, tenant-aware OIDC or SAML authentication, retention and deletion controls, and AI quota alerts. Run the API and browser smoke tests after each deployment.
+## Security and Configuration
 
-## Cognitive Reserve product model
+Do not commit:
 
-The prototype uses a four-layer model: lifetime experience informs a CRIq-informed Reserve Profile; current durable skills are assessed separately; AI-assisted behaviour is recorded as observable evidence; and reported business outcomes provide value evidence. The reserve profile is contextual and is not a clinical, intelligence, hiring or short-term performance score.
+- API keys
+- Passwords
+- Firebase private keys
+- Service-account keys
+- Secret Manager values
+- Production environment files
+- Local Windows paths
 
-Mental-health and wellbeing context is an optional safety layer. It may capture brief self-reported workload, stress, sleep or support needs, but it is not diagnostic, therapeutic or an employee performance score. Any high-risk disclosure requires configured human and local crisis-support pathways; the AI must not present itself as a clinician.
+Use `.env.example` for placeholder configuration only.
 
-The progressive user journey is level-gated across 25 scenarios: Foundation practice, Level 1 Safe User, Level 2 Independent Practitioner and Level 3 Advanced Practitioner. Users see one scenario at a time, with shuffled options and server-side scoring. A failed level triggers targeted practice rather than a longer questionnaire. The wellbeing item is a safety boundary, not a mental-health diagnosis.
+The deployed application uses authenticated user access for personal assessment results. Administrator routes require authorised administrator configuration.
 
-## Architecture and boundaries
+Before operational enterprise use, add:
 
-The organising chain is `Objective → Capability → Requirement → Evidence → Recommendation → Decision → Action → Outcome`, inspired by the thesis's linked architecture artefacts, governance and measurement. Thesis: https://opus.lib.uts.edu.au/bitstream/10453/133173/2/02whole.pdf (§4.6 and §6.3).
+- Tenant isolation
+- Enterprise OIDC or SAML integration
+- Permission-aware retrieval
+- Formal retention and deletion controls
+- Rate limiting
+- Connector idempotency
+- Encrypted backups
+- Security testing
+- AI quota and cost alerts
 
-The architecture screen distinguishes implemented, configured and planned services:
+## Architecture and Boundaries
 
-| Service | Status |
+The organising chain is:
+
+```text
+Objective → Capability → Requirement → Evidence → Recommendation → Decision → Action → Outcome
+```
+
+The architecture distinguishes implemented, configured and planned services:
+
+| Service | Current status |
 | --- | --- |
-| Cloud Run | Container supplied; deployment pending |
-| Gemini on Vertex AI | Adapter supplied; demo mode active by default |
-| Firestore | Adapter supplied; local-file mode active by default |
-| Vertex AI Search / Agent Search | Planned; current retrieval is lexical |
-| Document AI | Planned; only plain text / Markdown supported |
-| ADK / Agent Runtime | Planned; current orchestration is sequential application logic |
-| BigQuery | Planned; current analytics are calculated locally |
+| Cloud Run | Deployed competition service |
+| Cloud Build | Used for container builds |
+| Artifact Registry | Used for versioned images |
+| Firestore | Deployed persistence mode |
+| Firebase Authentication | Deployed email/password authentication |
+| Secret Manager | Used for protected runtime configuration |
+| Gemini on Vertex AI | Adapter implemented; demo mode may be active |
+| Vertex AI Search / Agent Search | Planned enterprise retrieval extension |
+| Document AI | Planned structured document-processing extension |
+| Vertex AI Agent Engine / ADK | Planned bounded-agent extension |
+| BigQuery | Planned analytics extension |
+| xAPI | Event-model extension; conformance not claimed |
+| OpenTelemetry | Observability extension; full instrumentation not claimed |
 | AlloyDB | Enterprise roadmap |
 
-No cognitive reserve, skill decay, System 2 state or organisational maturity is inferred from interaction counts. Assessment scores and xAPI LRS conformance are not claimed. Document excerpts are not independent verification of truth. Meeting extraction is not meeting approval.
+No cognitive reserve, skill decay, System 2 state or organisational maturity is inferred from interaction counts.
 
-This is a single shared demo workspace, without enterprise user authentication, authoritative approval roles or tenant isolation. The optional shared key limits demo access but does not establish a user's identity. Add proper authentication, role-based authorisation, permission-aware retrieval, connector idempotency, retention and audit controls before operational use. Workspace growth is bounded; the Firestore repository must be normalised into collections for larger workloads.
+Document excerpts establish traceability, not truth. Assessment scores do not establish clinical or employment conclusions. Meeting extraction is not meeting approval.
 
-## Source layout
+This is a bounded prototype. Approval names are self-attested unless an enterprise identity and approval system is configured.
 
-`server.mjs`: HTTP/API and approval workflow. `src/domain.mjs`: validation and state transitions. `src/ai.mjs`: demo / Gemini adapters. `src/store.mjs`: local / Firestore persistence. `public/`: responsive interface. `tests/`: domain and HTTP workflow checks.
+## Source Layout
 
+```text
+public/          Browser application, assessment and administrator pages
+src/             Domain, AI, authentication and storage modules
+scripts/         Development and validation scripts
+tests/           Test assets, where present
+server.mjs       HTTP server and API routes
+Dockerfile       Cloud Run container definition
+package.json     Node.js project configuration
+.env.example     Non-secret configuration template
+README.md        Project documentation
+```
 
-## Local assessment administration
+## Local Assessment Administration
 
-The user assessment is at /assessment.html. The protected local admin view is at /admin.html; enter the default local admin key local-admin, or set ADMIN_ACCESS_KEY before starting the server. The browser never receives the answer key: /api/assessment-schema returns shuffled option IDs and the server validates and scores submitted IDs.
+The user assessment is available at:
 
+```text
+/assessment.html
+```
+
+The protected local administrator view is available at:
+
+```text
+/admin.html
+```
+
+For local development, configure `ADMIN_ACCESS_KEY` before starting the server. The browser never receives the answer key. The assessment schema returns shuffled option identifiers, and the server validates and scores submitted identifiers.
+
+## Limitations
+
+This prototype does not claim:
+
+- Clinical validity
+- Predictive digital-twin capability
+- Automated employment decisions
+- Fully autonomous agent execution
+- Enterprise tenant isolation
+- Formal certification against referenced standards
+- Production readiness without further security and validation work
+
+AI-generated material requires human review. Reported outcomes require an identified measurement source and stated limitations.
+
+## Repository and Contact
+
+- **Repository:** https://github.com/zenaidigital/mindreserve-prototype
+- **Website:** https://zenaidigital.com
+- **Email:** sunil.kempegowda@zenaidigital.com
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE`.
+
+## Tags
+
+#GoogleCloud #AIBuilderCup #Hack2skill #Gemini #VertexAI #FutureOfWork #AgenticAI #CloudRun

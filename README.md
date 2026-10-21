@@ -2,16 +2,16 @@
 
 **Track:** Future of Work & Enterprise Productivity — Google Cloud AI Builder Cup 2026  
 **Team:** MindReserve Labs  
-**Team Leader:** Sunil Mysore Kempegowda   
+**Team Leader:** Sunil Mysore Kempegowda  
 **Team Member:** Bryan Chelliah
 
 **Tagline:** Make AI improve human judgement, not replace it.
 
-A local-first Enterprise Decision and Capability Copilot with traceability from business objective to evidence, human decision, internal action and reported outcome.
+A governed Enterprise Decision and Capability Copilot with traceability from business objective to evidence, human decision, internal action and reported outcome.
 
-## Production Competition Deployment
+## Competition Deployment
 
-The competition prototype is deployed on Google Cloud Run.
+The competition prototype is deployed on Google Cloud Run as a bounded evaluation environment.
 
 **Region:** `australia-southeast1` — Sydney, Australia
 
@@ -22,6 +22,14 @@ The competition prototype is deployed on Google Cloud Run.
 - **Demo video:** https://www.youtube.com/watch?v=_PmVYKsoem0
 
 Reviewer credentials are provided through the official competition portal. Passwords are not published in this repository.
+
+## Origin and Research
+
+MindReserve AI emerged from discussions with peers and observations of how people use digital tools in everyday work. Many people accept AI-generated answers without questioning the evidence, assumptions or consequences.
+
+This observation led to further research into human judgement, AI readiness, evidence verification and accountable decision-making. The prototype is the first practical outcome of that research, which also informs a forthcoming book on Enterprise Architecture, AI and human-centred digital transformation.
+
+The project is designed to help people use AI more thoughtfully: framing better questions, checking evidence, understanding uncertainty and retaining ownership of consequential decisions.
 
 ## Overview
 
@@ -79,16 +87,9 @@ MindReserve AI provides a structured capability baseline and a traceable decisio
 - **IAM and service accounts** — controlled access to Google Cloud resources
 - **Cloud Logging** — runtime diagnostics
 
-### Gemini usage
+### Gemini integration
 
-Gemini was used during research and development to shape:
-
-- Assessment content
-- Scenario design
-- Socratic questions
-- Feedback language
-- Governance framing
-- Enterprise architecture
+Gemini was used during research and development to shape assessment content, scenario design, Socratic questions, feedback language, governance framing and enterprise architecture.
 
 The application includes a Gemini on Vertex AI adapter targeting:
 
@@ -96,7 +97,9 @@ The application includes a Gemini on Vertex AI adapter targeting:
 gemini-2.5-flash
 ```
 
-The public demonstration may use deterministic demo mode for reliable evaluation. Vertex AI mode is available when the required project configuration, authentication and permissions are enabled.
+The adapter sends the decision and retrieved source text to Vertex AI, requests structured JSON, rejects invented source identifiers and rejects non-verbatim quotations. Errors are reported rather than silently falling back to demo mode.
+
+A successful live request must be completed before claiming that the Vertex AI connection has been verified.
 
 ### Enterprise extension architecture
 
@@ -110,7 +113,18 @@ The public demonstration may use deterministic demo mode for reliable evaluation
 
 The current prototype implements local lexical search, plain-text and Markdown processing, Firestore persistence, deterministic reasoning and a traceable decision workflow.
 
-## Governed Decision Workflow
+## Validation Roadmap
+
+The next research phase will proceed progressively:
+
+1. Create role-based virtual agents representing defined work personas.
+2. Generate synthetic scenarios and datasets for controlled testing.
+3. Validate the assessment and decision workflows against those scenarios.
+4. Conduct a supervised pilot with real users and establish baseline measures.
+5. Compare capability development, evidence coverage, rework, approval time and decision quality.
+6. With explicit consent and privacy safeguards, analyse anonymised usage patterns to identify where users may need support when working with AI.
+
+Future machine-learning analysis will use data minimisation, purpose limitation, transparency, access controls and retention/deletion controls. The system supports human judgement and does not make employment, clinical or other high-impact decisions about individuals.\r\n\r\n## Governed Decision Workflow
 
 The decision workspace connects:
 
@@ -277,8 +291,7 @@ Cloud Build
 Artifact Registry
     ↓
 Cloud Run
-    ↓
-Production competition URLs
+    ↓\r\nCompetition URLs
 ```
 
 The repository should be updated before creating a new deployment image so that the source, container image and public service remain traceable to the same release.
@@ -394,10 +407,15 @@ AI-generated material requires human review. Reported outcomes require an identi
 - **Website:** https://zenaidigital.com
 - **Email:** sunil.kempegowda@zenaidigital.com
 
-## License
+## Copyright and Commercial Use
 
-This project is licensed under the MIT License. See `LICENSE`.
+Copyright © 2026 Sunil Mysore Kempegowda / MindReserve Labs.
+
+This repository is published for competition evaluation only. No open-source licence is granted. Commercial use, redistribution, modification, or resale requires written permission from the copyright owner.
 
 ## Tags
 
 #GoogleCloud #AIBuilderCup #Hack2skill #Gemini #VertexAI #FutureOfWork #AgenticAI #CloudRun
+
+
+

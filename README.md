@@ -20,6 +20,7 @@ The competition prototype is deployed on Google Cloud Run as a bounded evaluatio
 - **Administrator dashboard:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/admin.html
 - **Business reserve workflow:** https://mindreserve-v2-cqjtrmi7ma-ts.a.run.app/reserve.html
 - **Demo video:** https://www.youtube.com/watch?v=_PmVYKsoem0
+- **Product specification:** [SPEC.md](SPEC.md)
 
 Reviewer credentials are provided through the official competition portal. Passwords are not published in this repository.
 
@@ -340,7 +341,7 @@ The organising chain is:
 Objective → Capability → Requirement → Evidence → Recommendation → Decision → Action → Outcome
 ```
 
-The architecture distinguishes implemented, configured and planned services:
+The architecture distinguishes implemented, configured and extension services:
 
 | Service | Current status |
 | --- | --- |
